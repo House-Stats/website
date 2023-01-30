@@ -36,7 +36,7 @@
 <div class="h-5/6">
     <div class="m-2">
         <div class="items-center align-middle flex flex-initial flex-wrap">
-            <p class="inline-block text-2xl m-2 align-middle">{toTitleCase(results.area)} ({toTitleCase(results.area_type)})</p>
+            <p class="inline-block text-2xl m-2 align-middle">{toTitleCase(results.area)} ({toTitleCase(results.area_type)}) {current_month.toLocaleString('default', { month: 'long' })} {current_month.getFullYear()}</p>
             <Badge 
                 text="Last Updated {last_updated.toLocaleDateString()}" 
                 colour="green" 
