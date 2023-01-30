@@ -29,6 +29,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sentry/svelte": "^7.34.0",
+		"@sentry/tracing": "^7.34.0",
 		"chart.js": "^4.2.0",
 		"chartjs-adapter-date-fns": "^3.0.0",
 		"chartjs-plugin-zoom": "^2.0.0",

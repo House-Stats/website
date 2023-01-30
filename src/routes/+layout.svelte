@@ -4,7 +4,14 @@
 	import { navigating } from '$app/stores';
 	import "../app.css";
 	import "flowbite/dist/flowbite.css";
+	import * as Sentry from "@sentry/svelte";
+	import { BrowserTracing } from "@sentry/tracing";
 
+	Sentry.init({
+		dsn: "https://ae2f305032d647b29dc252d33f1fb309@sentry.housestats.co.uk/5",
+		integrations: [new BrowserTracing()],
+		tracesSampleRate: 1.0,
+	});
 	let current_year = new Date().getFullYear();
 </script>
   
