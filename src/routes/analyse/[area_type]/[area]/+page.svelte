@@ -5,15 +5,18 @@
     import PieChart from '$lib/components/PieChart.svelte';
     import LineGraph from '$lib/components/LineGraph.svelte';
 
-    let quick_stats, stats, results;
+    let quick_stats, stats, results, timings;
     let last_updated: Date;
     let current_month: Date;
 
     export let data;
-    if (data.done == true) {
-        quick_stats = data.results.data.quick_stats;
-        stats = data.results.data;
-        results = data.results;
+    if (data.status == "SUCCESS" || data.status == "COMPLETED") {
+        console.log(data);
+        quick_stats = data.result.stats.quick_stats;
+        stats = data.result.stats;
+        results = data.result;
+        console.log(results);
+        timings = results.timings;
         last_updated = new Date(results.last_updated);
         current_month = new Date(quick_stats.current_month);
     }
@@ -43,12 +46,12 @@
                 classes="inline-block align-middle"
             />
             <Badge 
-                text="Execution Time {Number((results.exec_time).toFixed(3))}s" 
+                text="Execution Time {Number((timings.aggregate).toFixed(3))}s" 
                 colour="green" 
                 classes="inline-block align-middle"
             />
             <Badge 
-                text="Data Fetch Time {Number((results.load_time).toFixed(3))}s" 
+                text="Data Fetch Time {Number((timings.loader).toFixed(3))}s" 
                 colour="green"
                 classes="inline-block align-middle"
             />
@@ -68,24 +71,24 @@
             colour="red"
         />
         <QuickStat 
-            value={quick_stats.current_sales_volume}
+            value={quick_stats.sales_qty}
             currency={false}
             using_percentage={true}
-            percentage={quick_stats.sales_volume_change}
+            percentage={quick_stats.sales_qty_change}
             title="Sales Volume"
             colour="purple"
         />
         <QuickStat 
-            value={quick_stats.current_price_volume}
+            value={quick_stats.sales_volume}
             using_percentage={true}
-            percentage={quick_stats.price_volume_change}
+            percentage={quick_stats.sales_volume_change}
             title="Sales Price Volume"
             colour="green"
         />
         <QuickStat 
             value={quick_stats.expensive_sale}
             using_percentage={false}
-            title="Most Expensive House"
+            title="Most Expensive House 😀"
             colour="pink"
         />
         <div class="xl:row-span-2">
@@ -98,10 +101,10 @@
             Monthly Percentage Change
         </div>
         <div class=" md:col-span-2 row-span-2">
-            <LineGraph title="Sales Volume" labels={stats.monthly_sales_volume.type} data={stats.monthly_sales_volume.volume} dates={stats.monthly_sales_volume.dates}/>
+            <LineGraph title="Sales Volume" labels={stats.monthly_qty.type} data={stats.monthly_qty.qty} dates={stats.monthly_qty.dates}/>
         </div>
         <div class="md:col-span-2 row-span-2">
-            <LineGraph title="Price Volume" labels={stats.monthly_price_volume.type} data={stats.monthly_price_volume.volume} dates={stats.monthly_price_volume.dates}/>
+            <LineGraph title="Price Volume" labels={stats.monthly_volume.type} data={stats.monthly_volume.volume} dates={stats.monthly_volume.dates}/>
         </div>
     </div>
 </div>
