@@ -8,6 +8,8 @@
     let quick_stats, stats, results, timings;
     let last_updated: Date;
     let current_month: Date;
+    let area: string;
+
 
     export let data;
     if (data.status == "SUCCESS" || data.status == "COMPLETED") {
@@ -19,6 +21,12 @@
         timings = results.timings;
         last_updated = new Date(results.last_updated);
         current_month = new Date(quick_stats.current_month);
+        let postcodes = ["POSTCODE","AREA","SECTOR","OUTCODE"]
+        if (!postcodes.includes(results.area_type)){
+            area = toTitleCase(results.area);
+        } else {
+            area = results.area;
+        }
     }
 
     let title = "Analyse";
@@ -39,7 +47,7 @@
 <div class="h-5/6">
     <div class="m-2">
         <div class="items-center align-middle flex flex-initial flex-wrap">
-            <p class="inline-block text-2xl m-2 align-middle">{toTitleCase(results.area)} ({toTitleCase(results.area_type)}) {current_month.toLocaleString('default', { month: 'long' })} {current_month.getFullYear()}</p>
+            <p class="inline-block text-2xl m-2 align-middle">{area} ({toTitleCase(results.area_type)}) {current_month.toLocaleString('default', { month: 'long' })} {current_month.getFullYear()}</p>
             <Badge 
                 text="Last Updated {last_updated.toLocaleDateString()}" 
                 colour="green" 
@@ -88,7 +96,7 @@
         <QuickStat 
             value={quick_stats.expensive_sale}
             using_percentage={false}
-            title="Most Expensive House 😀"
+            title="Most Expensive House"
             colour="pink"
         />
         <div class="xl:row-span-2">
