@@ -51,7 +51,7 @@
                 <p class="font-bold">EPC Certificate</p>
                 <p>Floor Area - {data.epc_cert.sqr_m} M<sup>2</sup></p>
                 <p>Energy Rating - {data.epc_cert.energy_rating}/100</p>
-                <p><a class="text-blue-600" href={"https://find-energy-certificate.service.gov.uk" + data.epc_cert.cert_id}>View Certificate</a></p>
+                <p><a class="text-blue-600" target="_blank" href={"https://find-energy-certificate.service.gov.uk" + data.epc_cert.cert_id}>View Certificate</a></p>
             </div>
         </div>
         <div class="row-span-2 md:col-span-2 bg-white p-4 rounded">
