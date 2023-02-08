@@ -4,6 +4,7 @@
     import QuickStat from '$lib/components/QuickStat.svelte';
     import PieChart from '$lib/components/PieChart.svelte';
     import LineGraph from '$lib/components/LineGraph.svelte';
+    import BarChart from '$lib/components/BarChart.svelte';
 
     let quick_stats, stats, results, timings;
     let last_updated: Date;
@@ -109,10 +110,10 @@
             Monthly Percentage Change
         </div>
         <div class=" md:col-span-2 row-span-2">
-            <LineGraph title="Sales Volume" labels={stats.monthly_qty.type} data={stats.monthly_qty.qty} dates={stats.monthly_qty.dates}/>
+            <BarChart title="Sales Volume" labels={stats.monthly_qty.type} data={stats.monthly_qty.qty} dates={stats.monthly_qty.dates}/>
         </div>
         <div class="md:col-span-2 row-span-2">
-            <LineGraph title="Price Volume" labels={stats.monthly_volume.type} data={stats.monthly_volume.volume} dates={stats.monthly_volume.dates}/>
+            <BarChart title="Price Volume" labels={stats.monthly_volume.type} data={stats.monthly_volume.volume} dates={stats.monthly_volume.dates}/>
         </div>
     </div>
 </div>
