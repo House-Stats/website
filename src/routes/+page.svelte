@@ -62,7 +62,7 @@
             value={quick_stats.sales_volume}
             using_percentage={true}
             percentage={quick_stats.sales_volume_change}
-            title="Sales Price Volume"
+            title="Price Volume"
             colour="green"
         />
         <QuickStat 
@@ -71,8 +71,8 @@
             title="Most Expensive House"
             colour="pink"
         />
-		<div class="row-span-2 bg-white p-4 rounded">
-            <p class="text-lg ml-2">Top 5 Towns/Cities</p>
+		<div class="row-span-2 md:col-span-2 bg-white p-4 rounded">
+            <p class="text-lg ml-2">Top 5 Counties</p>
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -89,7 +89,7 @@
                         {#each data.top_five as town}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {toTitleCase(town._id.split("TOWN")[0])}
+                                    <a href={"/analyse/county/" + town._id.split("COUNTY")[0]}>{toTitleCase(town._id.split("COUNTY")[0])}</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {Number((town["3_month_perc"]).toFixed(3))}%
@@ -100,8 +100,8 @@
                 </table>
             </div>
 		</div>
-		<div class="row-span-2 bg-white p-4 rounded">
-            <p class="text-lg ml-2">Bottom 5 Towns/Cities</p>
+		<div class="row-span-2 md:col-span-2 bg-white p-4 rounded">
+            <p class="text-lg ml-2">Bottom 5 Counties</p>
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -118,7 +118,7 @@
                         {#each data.bottom_five as town}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {toTitleCase(town._id.split("TOWN")[0])}
+                                    <a href={"/analyse/county/" + town._id.split("COUNTY")[0]}>{toTitleCase(town._id.split("COUNTY")[0])}</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {Number((town["3_month_perc"]).toFixed(3))}%
@@ -136,7 +136,7 @@
             <LineGraph title="Monthly Average Price" labels={data.average_price.type} data={data.average_price.prices} dates={data.average_price.dates}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
-			<p class="text-lg">Monthlt Percentage Change (Coming Soon)</p>
+			<p class="text-lg">Monthly Percentage Change (Coming Soon)</p>
             <!-- <BarChart title="Price Volume" labels={data.monthly_volume.type} data={data.monthly_volume.volume} dates={data.monthly_volume.dates}/> -->
         </div>
         <div class=" md:col-span-2 row-span-2">
