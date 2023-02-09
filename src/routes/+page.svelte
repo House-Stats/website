@@ -16,6 +16,11 @@
             return (word.charAt(0).toUpperCase() + word.slice(1));
         }).join(' ');
     }
+    let perc_change = {
+        type: ["D","F","S","T","all"],
+        perc: [data.percentage_change.S.perc_change,data.percentage_change.F.perc_change,data.percentage_change.T.perc_change,data.percentage_change.D.perc_change,data.percentage_change.all.perc_change],
+        date: data.percentage_change.all.date
+    };
 </script>
 <svelte:head>
 	<title>House Stats | Home</title>
@@ -136,8 +141,7 @@
             <LineGraph title="Monthly Average Price" labels={data.average_price.type} data={data.average_price.prices} dates={data.average_price.dates}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
-			<p class="text-lg">Monthly Percentage Change (Coming Soon)</p>
-            <!-- <BarChart title="Price Volume" labels={data.monthly_volume.type} data={data.monthly_volume.volume} dates={data.monthly_volume.dates}/> -->
+            <BarChart title="Percentage Change" labels={perc_change.type} data={perc_change.perc} dates={perc_change.date}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
             <BarChart title="Sales Volume" labels={data.monthly_qty.type} data={data.monthly_qty.qty} dates={data.monthly_qty.dates}/>

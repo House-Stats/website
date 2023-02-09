@@ -6,20 +6,27 @@
     import LineGraph from '$lib/components/LineGraph.svelte';
     import BarChart from '$lib/components/BarChart.svelte';
 
-    let quick_stats, stats, results, timings;
+    let quick_stats, stats, results, timings, perc_change;
     let last_updated: Date;
     let current_month: Date;
     let area: string;
 
 
     export let data;
-    if (data.status == "SUCCESS" || data.status == "COMPLETED") {
+    if (data.status == "SUCCESS") {
         quick_stats = data.result.stats.quick_stats;
         stats = data.result.stats;
         results = data.result;
         timings = results.timings;
         last_updated = new Date(results.last_updated);
         current_month = new Date(quick_stats.current_month);
+
+        perc_change = {
+            type: ["S","F","T","D","all"],
+            perc: [stats.percentage_change.S.perc_change,stats.percentage_change.F.perc_change,stats.percentage_change.T.perc_change,stats.percentage_change.D.perc_change,stats.percentage_change.all.perc_change],
+            date: stats.percentage_change.all.date
+        };  
+
         let postcodes = ["POSTCODE","AREA","SECTOR","OUTCODE"]
         if (!postcodes.includes(results.area_type)){
             area = toTitleCase(results.area);
@@ -104,8 +111,8 @@
         <div class="md:col-span-2 row-span-2">
             <LineGraph title="Monthly Average Price" labels={stats.average_price.type} data={stats.average_price.prices} dates={stats.average_price.dates}/>
         </div>
-        <div class="bg-gray-700 md:col-span-2 row-span-2">
-            Monthly Percentage Change
+        <div class=" md:col-span-2 row-span-2">
+            <BarChart title="Percentage Change" labels={perc_change.type} data={perc_change.perc} dates={perc_change.date}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
             <BarChart title="Sales Volume" labels={stats.monthly_qty.type} data={stats.monthly_qty.qty} dates={stats.monthly_qty.dates}/>

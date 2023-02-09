@@ -4,9 +4,9 @@
 
     let house_types: { [key: string]: string }  = {
         'D': "Detatched",
+        'F': "Flat",
         'S': "Semi-Detatched",
         'T': "Terrace",
-        'F': "Flat",
         'O': 'Other'
     };
 
@@ -20,10 +20,11 @@
             label: title,
             data: data,
             backgroundColor: [
+            '#db2777',
             '#dc2626',
-            '#9333ea',
             '#16a34a',
-            '#db2777'
+            '#9333ea',
+
             ],
             hoverOffset: 4
         }],
