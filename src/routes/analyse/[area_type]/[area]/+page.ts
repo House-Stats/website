@@ -15,7 +15,6 @@ export async function load({ fetch, params }) {
 		while (true) {
 			const res_resp = await fetch(data.result);
             stats = await res_resp.json();
-			// console.log(stats)
             if (stats.status == "SUCCESS" || stats.status == "COMPLETED") {
 				break
 			} else if (counter > 60*4) {

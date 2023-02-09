@@ -14,11 +14,9 @@
 
     export let data;
     if (data.status == "SUCCESS" || data.status == "COMPLETED") {
-        console.log(data);
         quick_stats = data.result.stats.quick_stats;
         stats = data.result.stats;
         results = data.result;
-        console.log(results);
         timings = results.timings;
         last_updated = new Date(results.last_updated);
         current_month = new Date(quick_stats.current_month);

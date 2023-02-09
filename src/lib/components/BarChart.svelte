@@ -27,8 +27,8 @@
     export let title: string;
     export let data: Array<Array<BigInt>>;
     export let dates: Array<string>;
-    console.log(data)
-    let data_length = data.length;
+
+        let data_length = data.length;
     let datasets = [];
     for (let i = 0; i < data_length; i++){
         datasets.push({

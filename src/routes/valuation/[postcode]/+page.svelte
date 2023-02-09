@@ -2,7 +2,6 @@
   	import type { PageData } from './$types';
 
   	export let data: PageData;
-  	console.log(data.data);
 </script>
 
 <div class="md:mx-24 my-8">

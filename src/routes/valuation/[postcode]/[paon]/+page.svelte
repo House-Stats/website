@@ -8,7 +8,6 @@
     }
     export let data: PageData;
 
-    console.log(data);
 
     let sales = data.sales;
     let paon = data.paon;
