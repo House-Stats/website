@@ -81,6 +81,11 @@
                     display: true,
                     text: title
                 }
+            },
+            elements: {
+                point:{
+                    radius: 0
+                }
             }
         }
     };
