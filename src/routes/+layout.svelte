@@ -43,5 +43,4 @@
 	  &copy; {current_year} <a href="https://github.com/emtee14">Morgan Thomas</a> | <a href="mailto:contact@housestats.co.uk">contact@housestats.co.uk</a> | <a href="/tos">Terms of Use</a> | <a href="/pp">Privacy Policy</a> <br>
 	  Contains HM Land Registry data © Crown copyright and database right 2021. This data is licensed under the Open Government Licence v3.0.
 	</footer>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </div>
