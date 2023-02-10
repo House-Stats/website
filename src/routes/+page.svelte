@@ -6,8 +6,9 @@
 	import BarChart from "$lib/components/BarChart.svelte";
 
 	export let data;
+    console.log(data);
 	let quick_stats = data.quick_stats;
-	let current_month = new Date(data.average_price.dates.at(-1));
+	let current_month = new Date(data.average_price.dates.slice(-1)[0] );
 	let last_updated = new Date(data.last_updated);
 	let timings = data.timings;
 
@@ -16,6 +17,7 @@
             return (word.charAt(0).toUpperCase() + word.slice(1));
         }).join(' ');
     }
+
     let perc_change = {
         type: ["D","F","S","T","all"],
         perc: [data.percentage_change.S.perc_change,data.percentage_change.F.perc_change,data.percentage_change.T.perc_change,data.percentage_change.D.perc_change,data.percentage_change.all.perc_change],
