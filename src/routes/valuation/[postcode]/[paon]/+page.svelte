@@ -100,6 +100,8 @@
                 </table>
             </div>
         </div>
- 
+        <div class="bg-white p-4 rounded">
+            <p class="texl-lg">Valuation Coming Soon</p>
+        </div>
     </div>
 </div>
