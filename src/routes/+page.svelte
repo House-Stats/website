@@ -79,13 +79,13 @@
             colour="pink"
         />
 		<div class="row-span-2 md:col-span-2 bg-white p-4 rounded">
-            <p class="text-lg ml-2">Top 5 Counties</p>
+            <p class="text-lg ml-2">Top 5 Areas</p>
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                County
+                                Postcode Areas
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 3m Moving Average Percentage
@@ -96,7 +96,7 @@
                         {#each data.top_five as town}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <a href={"/analyse/county/" + town._id.split("COUNTY")[0]}>{toTitleCase(town._id.split("COUNTY")[0])}</a>
+                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{town._id.split("AREA")[0].toUpperCase()}</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {Number((town["3_month_perc"]).toFixed(3))}%
@@ -108,13 +108,13 @@
             </div>
 		</div>
 		<div class="row-span-2 md:col-span-2 bg-white p-4 rounded">
-            <p class="text-lg ml-2">Bottom 5 Counties</p>
+            <p class="text-lg ml-2">Bottom 5 Areas</p>
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                County
+                                Postcode Areas
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 3m Moving Average Percentage
@@ -125,7 +125,7 @@
                         {#each data.bottom_five as town}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <a href={"/analyse/county/" + town._id.split("COUNTY")[0]}>{toTitleCase(town._id.split("COUNTY")[0])}</a>
+                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{town._id.split("AREA")[0].toUpperCase()}</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {Number((town["3_month_perc"]).toFixed(3))}%
