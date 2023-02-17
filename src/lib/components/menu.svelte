@@ -73,7 +73,7 @@
     <NavUl {hidden}>
         <NavLi href="/" active={current_page === "/" ?  true : false}>Dashboard</NavLi>
         <NavLi href="/counties" active={current_page === "/counties" ?  true : false}>Overview Counties</NavLi>
-        <NavLi href="/valuation" active={current_page === "/valuation" ?  true : false}>House Valuation</NavLi>
+        <NavLi href="/valuation" active={current_page === "/valuation" ?  true : false}>House Lookup</NavLi>
         <NavLi href="/reports" active={current_page === "/reports" ?  true : false}>Report Generator</NavLi>
     </NavUl>
 </Navbar>
