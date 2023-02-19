@@ -2,7 +2,7 @@
 	import SearchBar from '$lib/components/SearchBar.svelte';
 </script>
 <svelte:head>
-	<title>House Stats | Lookup</title>
+	<title>House Stats | House Lookup</title>
 </svelte:head>
 <div class="flex justify-center items-center max-w-screen">
 	<div class="-mt-28">
