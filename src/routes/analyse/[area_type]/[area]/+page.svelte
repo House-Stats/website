@@ -34,8 +34,8 @@
                 null
             }
         }
-        console.log(perc_change)
 
+        
         let postcodes = ["POSTCODE","AREA","SECTOR","OUTCODE"]
         if (!postcodes.includes(results.area_type)){
             area = toTitleCase(results.area);
