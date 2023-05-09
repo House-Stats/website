@@ -7,7 +7,7 @@
     import TimePeriodRadio from "$lib/components/TimePeriodRadio.svelte";
 	
     export let data;
-    let period = "6mo";
+    let period = "1mo";
 
     $: quick_stats = data[period].quick_stats;
 	$: current_month = new Date(data["1mo"].average_price.dates.slice(-1)[0] );

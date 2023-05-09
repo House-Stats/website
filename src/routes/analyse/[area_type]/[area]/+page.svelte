@@ -24,9 +24,17 @@
 
         perc_change = {
             type: ["S","F","T","D","all"],
-            perc: [stats.percentage_change.S.perc_change,stats.percentage_change.F.perc_change,stats.percentage_change.T.perc_change,stats.percentage_change.D.perc_change,stats.percentage_change.all.perc_change],
+            perc: [],
             date: stats.percentage_change.all.date
-        };  
+        };
+        for (let i = 0; i < perc_change.type.length; i++){
+            try {
+                perc_change.perc.push(stats.percentage_change[perc_change.type[i]].perc_change)
+            } catch (TypeError) {
+                null
+            }
+        }
+        console.log(perc_change)
 
         let postcodes = ["POSTCODE","AREA","SECTOR","OUTCODE"]
         if (!postcodes.includes(results.area_type)){
