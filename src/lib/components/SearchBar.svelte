@@ -4,7 +4,7 @@
     let suggestions: Array<Array<[string,string]>> = [];
 
     let isFocused = false;
-    const onFocus =()=>isFocused=true;
+    const onFocus = ()=> isFocused = true;
     const onBlur = () => setTimeout(() => { isFocused=false; }, 250);
 
     let results: boolean = false;

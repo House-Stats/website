@@ -5,17 +5,18 @@
     import PieChart from '$lib/components/PieChart.svelte';
     import LineGraph from '$lib/components/LineGraph.svelte';
     import BarChart from '$lib/components/BarChart.svelte';
+    import TimePeriodRadio from '$lib/components/TimePeriodRadio.svelte';
 
     let quick_stats, stats, results, timings, perc_change;
     let last_updated: Date;
     let current_month: Date;
     let area: string;
-
+    let period = "6mo";
 
     export let data;
-    if (data.status == "SUCCESS") {
-        quick_stats = data.result.stats.quick_stats;
-        stats = data.result.stats;
+    $: if (data.status == "SUCCESS") {
+        quick_stats = data.result.stats[period].quick_stats;
+        stats = data.result.stats[period];
         results = data.result;
         timings = results.timings;
         last_updated = new Date(results.last_updated);
@@ -76,6 +77,7 @@
             />
         </div>
     </div>
+    <TimePeriodRadio bind:period={period}></TimePeriodRadio>
     <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 h-full m-2">
         <QuickStat 
             value={quick_stats.average_price}
@@ -105,6 +107,7 @@
             title="Most Expensive House"
             colour="pink"
         />
+        {#key period}
         <div class="xl:row-span-2">
             <PieChart title="Property Types" labels={stats.type_proportions.type} data={stats.type_proportions.count}/>
         </div>
@@ -115,10 +118,11 @@
             <BarChart title="Percentage Change" labels={perc_change.type} data={perc_change.perc} dates={perc_change.date}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
-            <BarChart title="Sales Volume" labels={stats.monthly_qty.type} data={stats.monthly_qty.qty} dates={stats.monthly_qty.dates}/>
+            <BarChart title="Sales Volume" labels={stats.monthly_qty.type.slice(0,-1)} data={stats.monthly_qty.qty.slice(0,-1)} dates={stats.monthly_qty.dates}/>
         </div>
         <div class="md:col-span-2 row-span-2">
-            <BarChart title="Price Volume" labels={stats.monthly_volume.type} data={stats.monthly_volume.volume} dates={stats.monthly_volume.dates}/>
+            <BarChart title="Price Volume" labels={stats.monthly_volume.type.slice(0,-1)} data={stats.monthly_volume.volume.slice(0,-1)} dates={stats.monthly_volume.dates}/>
         </div>
+        {/key}
     </div>
 </div>

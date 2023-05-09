@@ -28,11 +28,17 @@
     export let data: Array<Array<BigInt>>;
     export let dates: Array<string>;
 
-        let data_length = data.length;
+    let data_length = data.length;
     let datasets = [];
     for (let i = 0; i < data_length; i++){
+        let label: string;
+        if (labels[i].length < 4){
+            label = house_types[labels[i]];
+        } else {
+            label = (new Date(labels[i])).toLocaleDateString();
+        }
         datasets.push({
-            label: house_types[labels[i]],
+            label: label,
             data: data[i],
             tension: 0.1,
             borderColor: colours[i],
@@ -68,13 +74,13 @@
                         enabled: true
                     },
                     zoom: {
-                    wheel: {
-                        enabled: true,
-                    },
-                    pinch: {
-                        enabled: true
-                    },
-                    mode: 'xy',
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        mode: 'xy',
                     }
                 },
                 title: {

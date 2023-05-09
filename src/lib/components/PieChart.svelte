@@ -20,11 +20,10 @@
             label: title,
             data: data,
             backgroundColor: [
-            '#db2777',
             '#dc2626',
-            '#16a34a',
             '#9333ea',
-
+            '#16a34a',
+            '#db2777',
             ],
             hoverOffset: 4
         }],

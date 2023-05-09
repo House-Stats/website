@@ -4,24 +4,20 @@
 	import PieChart from "$lib/components/PieChart.svelte";
 	import LineGraph from "$lib/components/LineGraph.svelte";
 	import BarChart from "$lib/components/BarChart.svelte";
+    import TimePeriodRadio from "$lib/components/TimePeriodRadio.svelte";
+	
+    export let data;
+    let period = "6mo";
 
-	export let data;
-    console.log(data);
-	let quick_stats = data.quick_stats;
-	let current_month = new Date(data.average_price.dates.slice(-1)[0] );
-	let last_updated = new Date(data.last_updated);
-	let timings = data.timings;
-
-	function toTitleCase(str: string) {
-        return str.toLowerCase().split(' ').map(function (word) {
-            return (word.charAt(0).toUpperCase() + word.slice(1));
-        }).join(' ');
-    }
+    $: quick_stats = data[period].quick_stats;
+	$: current_month = new Date(data["1mo"].average_price.dates.slice(-1)[0] );
+	$: last_updated = new Date(data.last_updated);
+	$: timings = data.timings;
 
     let perc_change = {
         type: ["D","F","S","T","all"],
-        perc: [data.percentage_change.S.perc_change,data.percentage_change.F.perc_change,data.percentage_change.T.perc_change,data.percentage_change.D.perc_change,data.percentage_change.all.perc_change],
-        date: data.percentage_change.all.date
+        perc: [data[period].percentage_change.S.perc_change,data[period].percentage_change.F.perc_change,data[period].percentage_change.T.perc_change,data[period].percentage_change.D.perc_change,data[period].percentage_change.all.perc_change],
+        date: data[period].percentage_change.all.date
     };
 </script>
 <svelte:head>
@@ -49,6 +45,7 @@
             />
         </div>
     </div>
+    <TimePeriodRadio bind:period={period}></TimePeriodRadio>
     <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 h-full m-2">
         <QuickStat 
             value={quick_stats.average_price}
@@ -78,6 +75,7 @@
             title="Most Expensive House"
             colour="pink"
         />
+        {#key period}
 		<div class="row-span-2 md:col-span-2 bg-white p-4 rounded">
             <p class="text-lg ml-2">Top 5 Areas</p>
             <div class="relative overflow-x-auto">
@@ -137,19 +135,20 @@
             </div>
 		</div>
         <div class="xl:row-span-2">
-            <PieChart title="Property Types" labels={data.type_proportions.type} data={data.type_proportions.count}/>
+            <PieChart title="Property Types" labels={data[period].type_proportions.type} data={data[period].type_proportions.count}/>
         </div>
         <div class="md:col-span-2 row-span-2">
-            <LineGraph title="Monthly Average Price" labels={data.average_price.type} data={data.average_price.prices} dates={data.average_price.dates}/>
+            <LineGraph title="Monthly Average Price" labels={data[period].average_price.type} data={data[period].average_price.prices} dates={data[period].average_price.dates}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
             <BarChart title="Percentage Change" labels={perc_change.type} data={perc_change.perc} dates={perc_change.date}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
-            <BarChart title="Sales Volume" labels={data.monthly_qty.type} data={data.monthly_qty.qty} dates={data.monthly_qty.dates}/>
+            <BarChart title="Sales Volume" labels={data[period].monthly_qty.type.slice(0,-1)} data={data[period].monthly_qty.qty.slice(0,-1)} dates={data[period].monthly_qty.dates}/>
         </div>
         <div class="md:col-span-2 row-span-2">
-            <BarChart title="Price Volume" labels={data.monthly_volume.type} data={data.monthly_volume.volume} dates={data.monthly_volume.dates}/>
+            <BarChart title="Price Volume" labels={data[period].monthly_volume.type.slice(0,-1)} data={data[period].monthly_volume.volume.slice(0,-1)} dates={data[period].monthly_volume.dates}/>
         </div>
+        {/key}
     </div>
 </div>
