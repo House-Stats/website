@@ -14,7 +14,7 @@
 	$: last_updated = new Date(data.last_updated);
 	$: timings = data.timings;
 
-    let perc_change = {
+    $: perc_change = {
         type: ["D","F","S","T","all"],
         perc: [data[period].percentage_change.S.perc_change,data[period].percentage_change.F.perc_change,data[period].percentage_change.T.perc_change,data[period].percentage_change.D.perc_change,data[period].percentage_change.all.perc_change],
         date: data[period].percentage_change.all.date
