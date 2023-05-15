@@ -97,7 +97,7 @@
                                     <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{town._id.split("AREA")[0].toUpperCase()}</a>
                                 </th>
                                 <td class="px-6 py-4">
-                                    {Number((town["3_month_perc"]).toFixed(3))}%
+                                    {Number((town["3_month_perc"][0]).toFixed(3))}%
                                 </td>
                             </tr>
                         {/each}
@@ -126,7 +126,7 @@
                                     <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{town._id.split("AREA")[0].toUpperCase()}</a>
                                 </th>
                                 <td class="px-6 py-4">
-                                    {Number((town["3_month_perc"]).toFixed(3))}%
+                                    {Number((town["3_month_perc"][0]).toFixed(3))}%
                                 </td>
                             </tr>
                         {/each}
