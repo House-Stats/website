@@ -20,20 +20,29 @@
         '#dc2626',
         '#9333ea',
         '#16a34a',
-        '#db2777'
+        '#db2777',
+        '#F4B942'
     ]
 
     export let labels: Array<string>;
     export let title: string;
     export let data: Array<Array<BigInt>>;
     export let dates: Array<string>;
+    export let stacked: boolean = true;
 
     let data_length = data.length;
     let datasets = [];
+    let hide: boolean = false;
     for (let i = 0; i < data_length; i++){
+        if (!stacked && labels[i] != "all") {
+            hide = true;
+        } else {
+            hide = false;
+        }
         datasets.push({
             label: house_types[labels[i]],
             data: data[i],
+            hidden: hide,
             tension: 0.1,
             backgroundColor: colours[i],
             fill: false,
@@ -50,7 +59,7 @@
         options: {
             scales: {
                 x: {
-                    stacked: true,
+                    stacked: stacked,
                     type: 'time',
                     time: {
                         round: 'month',
@@ -63,7 +72,7 @@
                     }
                 },
                 y: {
-                    stacked: true
+                    stacked: stacked,
                 }
             },
             plugins: {

@@ -20,7 +20,8 @@
         '#dc2626',
         '#9333ea',
         '#16a34a',
-        '#db2777'
+        '#db2777',
+        '#F4B942'
     ]
 
     export let labels: Array<string>;

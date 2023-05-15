@@ -123,7 +123,7 @@
             <LineGraph title="Monthly Average Price" labels={stats.average_price.type} data={stats.average_price.prices} dates={stats.average_price.dates}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
-            <BarChart title="Percentage Change" labels={perc_change.type} data={perc_change.perc} dates={perc_change.date}/>
+            <BarChart title="Percentage Change" stacked={false} labels={perc_change.type} data={perc_change.perc} dates={perc_change.date}/>
         </div>
         <div class=" md:col-span-2 row-span-2">
             <BarChart title="Sales Volume" labels={stats.monthly_qty.type.slice(0,-1)} data={stats.monthly_qty.qty.slice(0,-1)} dates={stats.monthly_qty.dates}/>
