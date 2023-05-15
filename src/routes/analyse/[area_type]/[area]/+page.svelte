@@ -27,6 +27,7 @@
             perc: [],
             date: stats.percentage_change.all.date
         };
+
         for (let i = 0; i < perc_change.type.length; i++){
             try {
                 perc_change.perc.push(stats.percentage_change[perc_change.type[i]].perc_change)
@@ -116,19 +117,36 @@
             colour="pink"
         />
         {#key period}
-        <div class="xl:row-span-2">
+        <div class="xl:row-span-2  bg-white p-4">
             <PieChart title="Property Types" labels={stats.type_proportions.type} data={stats.type_proportions.count}/>
         </div>
-        <div class="md:col-span-2 row-span-2">
+        <div class="md:col-span-2 row-span-2  bg-white p-4">
             <LineGraph title="Monthly Average Price" labels={stats.average_price.type} data={stats.average_price.prices} dates={stats.average_price.dates}/>
         </div>
-        <div class=" md:col-span-2 row-span-2">
+        <div class="md:col-span-1 row-span-2 bg-white p-4 rounded">
+            <p class="text-2xl">Average Tenancy Duration</p>
+            <br>
+            <ul>
+                <hr>
+                <li><span class="text-lg font-medium">All</span> - {(Math.round((stats.average_tenancy.all / 31536000) * 100) / 100)} Years</li>
+                <hr>
+                <li><span class="text-lg font-medium">Semi Detatched</span> - {(Math.round((stats.average_tenancy.S / 31536000) * 100) / 100)} Years</li>
+                <hr>
+                <li><span class="text-lg font-medium">Flat</span> - {(Math.round((stats.average_tenancy.F / 31536000) * 100) / 100)} Years</li>
+                <hr>
+                <li><span class="text-lg font-medium">Terrace</span> - {(Math.round((stats.average_tenancy.T / 31536000) * 100) / 100)} Years</li>
+                <hr>
+                <li><span class="text-lg font-medium">Detatched</span> - {(Math.round((stats.average_tenancy.D / 31536000) * 100) / 100)} Years</li>
+                <hr>
+            </ul>
+        </div>
+        <div class="md:col-span-2 row-span-2  bg-white p-4">
             <BarChart title="Percentage Change" stacked={false} labels={perc_change.type} data={perc_change.perc} dates={perc_change.date}/>
         </div>
-        <div class=" md:col-span-2 row-span-2">
+        <div class=" md:col-span-2 row-span-2  bg-white p-4">
             <BarChart title="Sales Volume" labels={stats.monthly_qty.type.slice(0,-1)} data={stats.monthly_qty.qty.slice(0,-1)} dates={stats.monthly_qty.dates}/>
         </div>
-        <div class="md:col-span-2 row-span-2">
+        <div class="md:col-span-2 row-span-2  bg-white p-4">
             <BarChart title="Price Volume" labels={stats.monthly_volume.type.slice(0,-1)} data={stats.monthly_volume.volume.slice(0,-1)} dates={stats.monthly_volume.dates}/>
         </div>
         {/key}
