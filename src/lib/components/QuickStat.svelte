@@ -15,13 +15,18 @@
 </script>
 
 <div class="bg-{colour}-600 text-white rounded p-2 ">
+    {#if value > 0}
     {#if currency}
         <p class="text-2xl font-extralight inline">{formatter.format(value)}</p>
     {:else}
         <p class="text-2xl font-extralight inline">{value.toLocaleString()}</p>
     {/if}
     {#if using_percentage }
-    <p class="inline font-thin align-top">{percentage < 0 ? '▼' : '▲'} {Math.abs(percentage)}%</p>
+        <p class="inline font-thin align-top">{percentage < 0 ? '▼' : '▲'} {Math.abs(percentage)}%</p>
+    {/if}
+    {:else}
+    <p class="text-2xl font-extralight inline">N/A</p>
+    <p class="inline font-thin align-top">N/A</p>
     {/if}
     <p class="text-sm font-extralight">{title}</p>
 </div>
