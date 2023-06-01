@@ -20,7 +20,7 @@
         results = data.result;
         timings = results.timings;
         last_updated = new Date(results.last_updated);
-        current_month = new Date(quick_stats.current_month);
+        current_month = new Date(quick_stats.current_time);
 
         perc_change = {
             type: ["S","F","T","D","all"],
@@ -52,6 +52,29 @@
             return (word.charAt(0).toUpperCase() + word.slice(1));
         }).join(' ');
     }
+    $: current_period = '';
+    $: if (period == "6mo") {
+        if (current_month.getMonth() == 0){
+            current_period = current_month.getFullYear() + ' H1'
+        } else {
+            current_period = current_month.getFullYear() + ' H2'
+        }
+    } else if (period == "3mo") {
+        console.log(current_month.getMonth())
+        if (current_month.getMonth() == 0){
+            current_period = current_month.getFullYear() + ' Q1'
+        } else if (current_month.getMonth() == 3){
+            current_period = current_month.getFullYear() + ' Q2'
+        } else if (current_month.getMonth() == 6){
+            current_period = current_month.getFullYear() + ' Q3'
+        } else {
+            current_period = current_month.getFullYear() + ' Q4'
+        }
+    } else if (period == "12mo") {
+        current_period = current_month.getFullYear().toString()
+    } else {
+        current_period = current_month.toLocaleString('default', { month: 'long' }) + " " + current_month.getFullYear()
+    }
 </script>
 
 
@@ -63,7 +86,7 @@
 <div class="h-5/6">
     <div class="m-2">
         <div class="items-center align-middle flex flex-initial flex-wrap">
-            <p class="inline-block text-2xl m-2 align-middle">{area} ({toTitleCase(results.area_type)}) {current_month.toLocaleString('default', { month: 'long' })} {current_month.getFullYear()}</p>
+            <p class="inline-block text-2xl m-2 align-middle">{area} ({toTitleCase(results.area_type)}) {current_period}</p>
             <Badge 
                 text="Last Updated {last_updated.toLocaleDateString()}" 
                 colour="green" 
@@ -128,15 +151,15 @@
             <br>
             <ul>
                 <hr>
-                <li><span class="text-lg font-medium">All</span> - {(Math.round((stats.average_tenancy.all / 31536000) * 100) / 100)} Years</li>
+                <li><span class="text-lg font-medium">All</span> - {stats.average_tenancy.all > 0 ? (Math.round((stats.average_tenancy.all / 31536000) * 100) / 100) : 'N/A' } Years</li>
                 <hr>
-                <li><span class="text-lg font-medium">Semi Detatched</span> - {(Math.round((stats.average_tenancy.S / 31536000) * 100) / 100)} Years</li>
+                <li><span class="text-lg font-medium">Semi Detatched</span> - {stats.average_tenancy.S > 0 ? (Math.round((stats.average_tenancy.S / 31536000) * 100) / 100) : 'N/A' } Years</li>
                 <hr>
-                <li><span class="text-lg font-medium">Flat</span> - {(Math.round((stats.average_tenancy.F / 31536000) * 100) / 100)} Years</li>
+                <li><span class="text-lg font-medium">Flat</span> - {stats.average_tenancy.F > 0 ? (Math.round((stats.average_tenancy.F / 31536000) * 100) / 100) : 'N/A' } Years</li>
                 <hr>
-                <li><span class="text-lg font-medium">Terrace</span> - {(Math.round((stats.average_tenancy.T / 31536000) * 100) / 100)} Years</li>
+                <li><span class="text-lg font-medium">Terrace</span> - {stats.average_tenancy.T > 0 ? (Math.round((stats.average_tenancy.T / 31536000) * 100) / 100) : 'N/A' } Years</li>
                 <hr>
-                <li><span class="text-lg font-medium">Detatched</span> - {(Math.round((stats.average_tenancy.D / 31536000) * 100) / 100)} Years</li>
+                <li><span class="text-lg font-medium">Detatched</span> - {stats.average_tenancy.D > 0 ? (Math.round((stats.average_tenancy.D / 31536000) * 100) / 100) : 'N/A' } Years</li>
                 <hr>
             </ul>
         </div>

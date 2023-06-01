@@ -10,7 +10,7 @@
     let period = "1mo";
 
     $: quick_stats = data[period].quick_stats;
-	$: current_month = new Date(data["1mo"].average_price.dates.slice(-1)[0] );
+	$: current_month = new Date(data[period].quick_stats.current_time);
 	$: last_updated = new Date(data.last_updated);
 	$: timings = data.timings;
 
@@ -19,6 +19,35 @@
         perc: [data[period].percentage_change.S.perc_change,data[period].percentage_change.F.perc_change,data[period].percentage_change.T.perc_change,data[period].percentage_change.D.perc_change,data[period].percentage_change.all.perc_change],
         date: data[period].percentage_change.all.date
     };
+    $: current_period = '';
+    $: if (period == "6mo") {
+        if (current_month.getMonth() == 0){
+            current_period = current_month.getFullYear() + ' H1'
+        } else {
+            current_period = current_month.getFullYear() + ' H2'
+        }
+    } else if (period == "3mo") {
+        if (current_month.getMonth() == 0){
+            current_period = current_month.getFullYear() + ' Q1'
+        } else if (current_month.getMonth() == 3){
+            current_period = current_month.getFullYear() + ' Q2'
+        } else if (current_month.getMonth() == 6){
+            current_period = current_month.getFullYear() + ' Q3'
+        } else {
+            current_period = current_month.getFullYear() + ' Q4'
+        }
+    } else if (period == "12mo") {
+        current_period = current_month.getFullYear().toString()
+    } else {
+        current_period = current_month.toLocaleString('default', { month: 'long' }) + " " + current_month.getFullYear()
+    }
+    async function get_areas(file :type) {
+        let area_data = await fetch(file);
+        let area_names = area_data.json()
+        return area_names
+    }
+    let area_names = get_areas('/areas.json')
+    console.log(area_names)
 </script>
 <svelte:head>
 	<title>House Stats | Home</title>
@@ -27,7 +56,7 @@
 <div class="h-5/6">
     <div class="m-2">
         <div class="items-center align-middle flex flex-initial flex-wrap">
-            <p class="inline-block text-2xl m-2 align-middle">England & Wales, {current_month.toLocaleString('default', { month: 'long' })} {current_month.getFullYear()}</p>
+            <p class="inline-block text-2xl m-2 align-middle">England & Wales, {current_period}</p>
             <Badge 
                 text="Last Updated {last_updated.toLocaleDateString()}" 
                 colour="green" 
@@ -76,6 +105,9 @@
             colour="pink"
         />
         {#key period}
+        {#await area_names}
+        Loading
+        {:then area_names}
 		<div class="row-span-2 md:col-span-2 bg-white p-4 rounded">
             <p class="text-lg ml-2">Top 5 Areas</p>
             <div class="relative overflow-x-auto">
@@ -94,7 +126,7 @@
                         {#each data.top_five as town}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{town._id.split("AREA")[0].toUpperCase()}</a>
+                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{area_names[town._id.split("AREA")[0].toUpperCase()].area_name} ({town._id.split("AREA")[0].toUpperCase()})</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {Number((town["3_month_perc"][0]).toFixed(3))}%
@@ -123,7 +155,7 @@
                         {#each data.bottom_five as town}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{town._id.split("AREA")[0].toUpperCase()}</a>
+                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{area_names[town._id.split("AREA")[0].toUpperCase()].area_name} ({town._id.split("AREA")[0].toUpperCase()})</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {Number((town["3_month_perc"][0]).toFixed(3))}%
@@ -134,6 +166,7 @@
                 </table>
             </div>
 		</div>
+        {/await}
         <div class="xl:row-span-2 bg-white p-4">
             <PieChart title="Property Types" labels={data[period].type_proportions.type} data={data[period].type_proportions.count}/>
         </div>

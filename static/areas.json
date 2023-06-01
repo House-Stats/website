@@ -1,0 +1,547 @@
+{
+    "AL":{
+       "area":"AL",
+       "area_name":"St. Albans",
+       "region":"East of England"
+    },
+    "B":{
+       "area":"B",
+       "area_name":"Birmingham",
+       "region":"West Midlands"
+    },
+    "BA":{
+       "area":"BA",
+       "area_name":"Bath",
+       "region":"South West"
+    },
+    "BB":{
+       "area":"BB",
+       "area_name":"Blackburn",
+       "region":"North West"
+    },
+    "BD":{
+       "area":"BD",
+       "area_name":"Bradford",
+       "region":"North West"
+    },
+    "BH":{
+       "area":"BH",
+       "area_name":"Bournemouth",
+       "region":"South West"
+    },
+    "BL":{
+       "area":"BL",
+       "area_name":"Bolton",
+       "region":"North West"
+    },
+    "BN":{
+       "area":"BN",
+       "area_name":"Brighton",
+       "region":"South East"
+    },
+    "BR":{
+       "area":"BR",
+       "area_name":"Bromley",
+       "region":"Greater London"
+    },
+    "BS":{
+       "area":"BS",
+       "area_name":"Bristol",
+       "region":"South West"
+    },
+    "BT":{
+       "area":"BT",
+       "area_name":"Belfast",
+       "region":"Northern Ireland"
+    },
+    "CA":{
+       "area":"CA",
+       "area_name":"Carlisle",
+       "region":"North West"
+    },
+    "CB":{
+       "area":"CB",
+       "area_name":"Cambridge",
+       "region":"East of England"
+    },
+    "CF":{
+       "area":"CF",
+       "area_name":"Cardiff",
+       "region":"Wales"
+    },
+    "CH":{
+       "area":"CH",
+       "area_name":"Chester",
+       "region":"North West"
+    },
+    "CM":{
+       "area":"CM",
+       "area_name":"Chelmsford",
+       "region":"East of England"
+    },
+    "CO":{
+       "area":"CO",
+       "area_name":"Colchester",
+       "region":"East of England"
+    },
+    "CR":{
+       "area":"CR",
+       "area_name":"Croydon",
+       "region":"Greater London"
+    },
+    "CT":{
+       "area":"CT",
+       "area_name":"Canterbury",
+       "region":"South East"
+    },
+    "CV":{
+       "area":"CV",
+       "area_name":"Coventry",
+       "region":"West Midlands"
+    },
+    "CW":{
+       "area":"CW",
+       "area_name":"Crewe",
+       "region":"North West"
+    },
+    "DA":{
+       "area":"DA",
+       "area_name":"Dartford",
+       "region":"Greater London"
+    },
+    "DE":{
+       "area":"DE",
+       "area_name":"Derby",
+       "region":"East Midlands"
+    },
+    "DH":{
+       "area":"DH",
+       "area_name":"Durham",
+       "region":"North East"
+    },
+    "DL":{
+       "area":"DL",
+       "area_name":"Darlington",
+       "region":"North East"
+    },
+    "DN":{
+       "area":"DN",
+       "area_name":"Doncaster",
+       "region":"East Midlands"
+    },
+    "DT":{
+       "area":"DT",
+       "area_name":"Dorchester",
+       "region":"South West"
+    },
+    "DY":{
+       "area":"DY",
+       "area_name":"Dudley",
+       "region":"West Midlands"
+    },
+    "E":{
+       "area":"E",
+       "area_name":"London",
+       "region":"Greater London"
+    },
+    "EC":{
+       "area":"EC",
+       "area_name":"London",
+       "region":"Greater London"
+    },
+    "EN":{
+       "area":"EN",
+       "area_name":"Enfield",
+       "region":"Greater London"
+    },
+    "EX":{
+       "area":"EX",
+       "area_name":"Exeter",
+       "region":"South West"
+    },
+    "FY":{
+       "area":"FY",
+       "area_name":"Blackpool",
+       "region":"North West"
+    },
+    "GL":{
+       "area":"GL",
+       "area_name":"Gloucester",
+       "region":"South West"
+    },
+    "GU":{
+       "area":"GU",
+       "area_name":"Guilford",
+       "region":"South East"
+    },
+    "GY":{
+       "area":"GY",
+       "area_name":"Guernsey",
+       "region":"Channel Islands"
+    },
+    "HA":{
+       "area":"HA",
+       "area_name":"Harrow",
+       "region":"Greater London"
+    },
+    "HD":{
+       "area":"HD",
+       "area_name":"Huddersfield",
+       "region":"North West"
+    },
+    "HG":{
+       "area":"HG",
+       "area_name":"Harrogate",
+       "region":"North East"
+    },
+    "HP":{
+       "area":"HP",
+       "area_name":"Hemel",
+       "region":"East of England"
+    },
+    "HR":{
+       "area":"HR",
+       "area_name":"Hereford",
+       "region":"West Midlands"
+    },
+    "HU":{
+       "area":"HU",
+       "area_name":"Hull",
+       "region":"North East"
+    },
+    "HX":{
+       "area":"HX",
+       "area_name":"Halifax",
+       "region":"North West"
+    },
+    "IG":{
+       "area":"IG",
+       "area_name":"Ilford",
+       "region":"Greater London"
+    },
+    "IM":{
+       "area":"IM",
+       "area_name":"Isle of Man",
+       "region":"Isle of Man"
+    },
+    "IP":{
+       "area":"IP",
+       "area_name":"Ipswich",
+       "region":"East of England"
+    },
+    "JE":{
+       "area":"JE",
+       "area_name":"Jersey",
+       "region":"Channel Islands"
+    },
+    "KT":{
+       "area":"KT",
+       "area_name":"Kingston",
+       "region":"Greater London"
+    },
+    "L":{
+       "area":"L",
+       "area_name":"Liverpool",
+       "region":"North West"
+    },
+    "LA":{
+       "area":"LA",
+       "area_name":"Lancaster",
+       "region":"North West"
+    },
+    "LD":{
+       "area":"LD",
+       "area_name":"Llandrindod",
+       "region":"Wales"
+    },
+    "LE":{
+       "area":"LE",
+       "area_name":"Leicester",
+       "region":"East Midlands"
+    },
+    "LL":{
+       "area":"LL",
+       "area_name":"Llandudno",
+       "region":"Wales"
+    },
+    "LN":{
+       "area":"LN",
+       "area_name":"Lincoln",
+       "region":"East Midlands"
+    },
+    "LS":{
+       "area":"LS",
+       "area_name":"Leeds",
+       "region":"North East"
+    },
+    "LU":{
+       "area":"LU",
+       "area_name":"Luton",
+       "region":"East of England"
+    },
+    "M":{
+       "area":"M",
+       "area_name":"Manchester",
+       "region":"North West"
+    },
+    "ME":{
+       "area":"ME",
+       "area_name":"Medway",
+       "region":"South East"
+    },
+    "MK":{
+       "area":"MK",
+       "area_name":"Milton Keynes",
+       "region":"South East"
+    },
+    "N":{
+       "area":"N",
+       "area_name":"London",
+       "region":"Greater London"
+    },
+    "NE":{
+       "area":"NE",
+       "area_name":"Newcastle",
+       "region":"North East"
+    },
+    "NG":{
+       "area":"NG",
+       "area_name":"Nottingham",
+       "region":"East Midlands"
+    },
+    "NN":{
+       "area":"NN",
+       "area_name":"Northampton",
+       "region":"West Midlands"
+    },
+    "NP":{
+       "area":"NP",
+       "area_name":"Newport",
+       "region":"Wales"
+    },
+    "NR":{
+       "area":"NR",
+       "area_name":"Norwich",
+       "region":"East of England"
+    },
+    "NW":{
+       "area":"NW",
+       "area_name":"London",
+       "region":"Greater London"
+    },
+    "OL":{
+       "area":"OL",
+       "area_name":"Oldham",
+       "region":"North West"
+    },
+    "OX":{
+       "area":"OX",
+       "area_name":"Oxford",
+       "region":"South East"
+    },
+    "PE":{
+       "area":"PE",
+       "area_name":"Peterborough",
+       "region":"East England"
+    },
+    "PL":{
+       "area":"PL",
+       "area_name":"Plymouth",
+       "region":"South West"
+    },
+    "PO":{
+       "area":"PO",
+       "area_name":"Portsmouth",
+       "region":"South East"
+    },
+    "PR":{
+       "area":"PR",
+       "area_name":"Preston",
+       "region":"North West"
+    },
+    "RG":{
+       "area":"RG",
+       "area_name":"Reading",
+       "region":"South East"
+    },
+    "RH":{
+       "area":"RH",
+       "area_name":"Redhill",
+       "region":"South East"
+    },
+    "RM":{
+       "area":"RM",
+       "area_name":"Romford",
+       "region":"Greater London"
+    },
+    "S":{
+       "area":"S",
+       "area_name":"Sheffield",
+       "region":"East Midlands"
+    },
+    "SA":{
+       "area":"SA",
+       "area_name":"Swansea",
+       "region":"Wales"
+    },
+    "SE":{
+       "area":"SE",
+       "area_name":"London",
+       "region":"Greater London"
+    },
+    "SG":{
+       "area":"SG",
+       "area_name":"Stevenage",
+       "region":"East of England"
+    },
+    "SK":{
+       "area":"SK",
+       "area_name":"Stockport",
+       "region":"North West"
+    },
+    "SL":{
+       "area":"SL",
+       "area_name":"Slough",
+       "region":"South East"
+    },
+    "SM":{
+       "area":"SM",
+       "area_name":"Sutton",
+       "region":"Greater London"
+    },
+    "SN":{
+       "area":"SN",
+       "area_name":"Swindon",
+       "region":"South West"
+    },
+    "SO":{
+       "area":"SO",
+       "area_name":"Southampton",
+       "region":"South East"
+    },
+    "SP":{
+       "area":"SP",
+       "area_name":"Salisbury",
+       "region":"South West"
+    },
+    "SR":{
+       "area":"SR",
+       "area_name":"Sunderland",
+       "region":"North East"
+    },
+    "SS":{
+       "area":"SS",
+       "area_name":"Southend",
+       "region":"East of England"
+    },
+    "ST":{
+       "area":"ST",
+       "area_name":"Stoke on Trent",
+       "region":"West Midlands"
+    },
+    "SW":{
+       "area":"SW",
+       "area_name":"London",
+       "region":"Greater London"
+    },
+    "SY":{
+       "area":"SY",
+       "area_name":"Shrewsbury",
+       "region":"Wales"
+    },
+    "TA":{
+       "area":"TA",
+       "area_name":"Taunton",
+       "region":"South West"
+    },
+    "TF":{
+       "area":"TF",
+       "area_name":"Telford",
+       "region":"West Midlands"
+    },
+    "TN":{
+       "area":"TN",
+       "area_name":"Tonbridge",
+       "region":"South East"
+    },
+    "TQ":{
+       "area":"TQ",
+       "area_name":"Torquay",
+       "region":"South West"
+    },
+    "TR":{
+       "area":"TR",
+       "area_name":"Truro",
+       "region":"South West"
+    },
+    "TS":{
+       "area":"TS",
+       "area_name":"Cleveland",
+       "region":"North East"
+    },
+    "TW":{
+       "area":"TW",
+       "area_name":"Twickenham",
+       "region":"Greater London"
+    },
+    "UB":{
+       "area":"UB",
+       "area_name":"Southall",
+       "region":"Greater London"
+    },
+    "W":{
+       "area":"W",
+       "area_name":"London",
+       "region":"Greater London"
+    },
+    "WA":{
+       "area":"WA",
+       "area_name":"Warrington",
+       "region":"North West"
+    },
+    "WC":{
+       "area":"WC",
+       "area_name":"London",
+       "region":"Greater London"
+    },
+    "WD":{
+       "area":"WD",
+       "area_name":"Watford",
+       "region":"Greater London"
+    },
+    "WF":{
+       "area":"WF",
+       "area_name":"Wakefield",
+       "region":"North East"
+    },
+    "WN":{
+       "area":"WN",
+       "area_name":"Wigan",
+       "region":"North West"
+    },
+    "WR":{
+       "area":"WR",
+       "area_name":"Worcester",
+       "region":"West Midlands"
+    },
+    "WS":{
+       "area":"WS",
+       "area_name":"Walsall",
+       "region":"West Midlands"
+    },
+    "WV":{
+       "area":"WV",
+       "area_name":"Wolverhampton",
+       "region":"West Midlands"
+    },
+    "YO":{
+       "area":"YO",
+       "area_name":"York",
+       "region":"North East"
+    },
+    "TD": {
+        "area":"TD",
+        "area_name":"Galashiels",
+        "region":"Scotland"
+    }
+ }
