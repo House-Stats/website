@@ -7,6 +7,16 @@
     import BarChart from '$lib/components/BarChart.svelte';
     import TimePeriodRadio from '$lib/components/TimePeriodRadio.svelte';
 
+
+    let formatter = Intl.NumberFormat('en', 
+        { 
+            notation: 'compact', 
+            unitDisplay: 'long',
+            style: 'currency', 
+            currency: 'GBP' 
+        });
+
+
     let quick_stats, stats, results, timings, perc_change;
     let last_updated: Date;
     let current_month: Date;
@@ -80,6 +90,8 @@
 
 <svelte:head>
 	<title>House Stats | {title}</title>
+    <meta name="description" content={"In depth statistics for " + area + " " + results.area_type.toLowerCase() + " showing price trends and more."}>
+    <meta name="keywords" content={"UK House Price, " + area}>
 </svelte:head>
 
 

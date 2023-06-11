@@ -1,3 +1,9 @@
+<svelte:head>
+	<title>House Stats | Privacy Policy</title>
+    <meta name="description" content="View, analyse and compare property data from all over England and Wales">
+    <meta name="keywords" content="UK House Price, House Stats, Privacy Policy">
+</svelte:head>
+
 <div class="m-8 bg-white rounded p-4 justify-center">
     <p class="text-2xl">Privacy Policy of House Stats</p>
     <p>House Stats operates the https://housestats.co.uk website, which provides the SERVICE.</p>
