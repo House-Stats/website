@@ -107,7 +107,7 @@
         {#key period}
         {#await area_names}
         Loading
-        {:then area_names}
+        {:then area_names_list}
 		<div class="row-span-2 md:col-span-2 bg-white p-4 rounded">
             <p class="text-lg ml-2">Top 5 Areas</p>
             <div class="relative overflow-x-auto">
@@ -126,7 +126,7 @@
                         {#each data.top_five as town}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{area_names[town._id.split("AREA")[0].toUpperCase()].area_name} ({town._id.split("AREA")[0].toUpperCase()})</a>
+                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{area_names_list[town._id.split("AREA")[0].toUpperCase()].area_name} ({town._id.split("AREA")[0].toUpperCase()})</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {Number((town["3_month_perc"][0]).toFixed(3))}%
@@ -155,7 +155,7 @@
                         {#each data.bottom_five as town}
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{area_names[town._id.split("AREA")[0].toUpperCase()].area_name} ({town._id.split("AREA")[0].toUpperCase()})</a>
+                                    <a href={"/analyse/area/" + town._id.split("AREA")[0]}>{area_names_list[town._id.split("AREA")[0].toUpperCase()].area_name} ({town._id.split("AREA")[0].toUpperCase()})</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {Number((town["3_month_perc"][0]).toFixed(3))}%
