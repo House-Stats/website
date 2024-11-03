@@ -18,13 +18,13 @@ export async function load({ fetch, params }) {
             if (stats.status == "SUCCESS" || stats.status == "COMPLETED") {
 				break
 			} else if (counter > 60*4) {
-				throw error(500, 'Connection Timed Out')
+				error(500, 'Connection Timed Out');
 			}
 			counter++;
 			await sleep(250)
 		}
 	} else {
-		throw error(500, 'An Error Has Occured');
+		error(500, 'An Error Has Occured');
 	}
 	return stats
 }

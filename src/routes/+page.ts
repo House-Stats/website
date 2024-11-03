@@ -8,6 +8,6 @@ export const load = (async ({ params, fetch }) => {
 	if (response.status == 200) {
 		return data
 	} else {
-		throw error(400, 'Unable to load main dashboard new data is being added');
+		error(400, 'Unable to load main dashboard new data is being added');
 	}
   }) satisfies PageLoad;

@@ -10,6 +10,6 @@ export const load = (async ({ params, fetch }) => {
 	if (response.status == 200) {
 		return data
 	} else {
-		throw error(404, 'No Postcode Found');
+		error(404, 'No Postcode Found');
 	}
   }) satisfies PageLoad;

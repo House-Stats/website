@@ -12,6 +12,6 @@ export const load = (async ({ params }) => {
 			postcode: postcode
 		}
 	} else {
-		throw error(404, 'No Postcode Found');
+		error(404, 'No Postcode Found');
 	}
   }) satisfies PageLoad;
